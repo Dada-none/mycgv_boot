@@ -1,0 +1,116 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+<%-- 문법(for, if,..)사용을 위해 --%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MYCGV</title>
+<link rel="stylesheet" href="http://localhost:9000/css/mycgv_jsp.css">
+<link rel="stylesheet" href="http://localhost:9000/css/am-pagination.css">
+<script src="http://localhost:9000/js/jquery-3.6.4.min.js"></script>
+<script src="http://localhost:9000/js/mycgv_jsp_jquery.js"></script>
+<script src="http://localhost:9000/js/am-pagination.js"></script>
+<script src="http://localhost:9000/js/mycgv_board_list.js"></script>
+
+<script>
+	$(document).ready(function(){
+		var pager = jQuery('#ampaginationsm').pagination({
+		
+		    maxSize: '${maxSize}',	    		// max page size
+		    totals: '${totals}',	// total pages	
+		    page: '${page}',		// initial page		
+		    pageSize: '${pageSize}',			// max number items per page
+		
+		    // custom labels		
+		    lastText: '&raquo;&raquo;', 		
+		    firstText: '&laquo;&laquo;',		
+		    prevText: '&laquo;',		
+		    nextText: '&raquo;',
+				     
+		    btnSize:'sm'	// 'sm'  or 'lg'		
+		});
+		
+		jQuery('#ampaginationsm').on('am.pagination.change',function(e){
+			   jQuery('.showlabelsm').text('The selected page no: '+e.page);
+	           $(location).attr('href', "http://localhost:9000/board_list_json.do?page="+e.page);
+	    });
+		
+ 	});
+</script> 
+</head>
+<body>
+	<!-- header -->
+	<jsp:include page="../header.jsp"></jsp:include>
+	
+	<!-- content -->
+	<div class="content">
+		<section class="board">
+			<h1 class="title">게시판</h1>
+			<!-- dhtml로 만들거야 -->
+			<%-- <table class="board_list">
+				<tr>
+					<td colspan="5">
+						<a href="board_write.do">
+							<button type="button" class="btn_style2">글쓰기</button>
+						</a>
+					</td>
+				</tr>
+				<tr>
+					<th>번호</th>
+					<th>제목</th>
+					<th>조회수</th>
+					<th>작성자</th>
+					<th>작성일자</th>
+				</tr>
+				<% for(BoardVo boardVo : list){%>
+				<tr>
+					<td><%=boardVo.getRno() %></td>
+					<td><a href="board_content.jsp?bid=<%=boardVo.getBid() %>"><%=boardVo.getBtitle() %></a></td>
+					<td><%=boardVo.getBhits() %></td>
+					<td><%=boardVo.getId() %></td>
+					<td><%=boardVo.getBdate() %></td>
+				</tr>
+				<%} %>
+				<c:forEach var="boardVo" items="${list}"> ${name의 이름}
+				<tr>
+					<td>${boardVo.rno}</td>
+					<td><a href="board_content.do?bid=${boardVo.bid}">${boardVo.btitle}</a></td>
+					<td>${boardVo.bhits}</td>
+					<td>${boardVo.id}</td>
+					<td>${boardVo.bdate}</td>
+				</tr>
+				</c:forEach>
+				<tr>
+					<!-- <td colspan="5"><< 1  2  3  4  5 >></td> -->
+					<td colspan="5"><div id="ampaginationsm"></div></td> <!-- 좌측 이름 그대로 -->
+				</tr>
+			</table> --%>
+		</section>
+	</div>
+	
+	<!-- footer -->
+	<jsp:include page="../footer.jsp"></jsp:include>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
