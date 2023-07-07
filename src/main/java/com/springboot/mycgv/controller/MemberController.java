@@ -14,6 +14,24 @@ public class MemberController {
     @Autowired
     MemberService memberService;
 
+
+    /* join process */
+    @PostMapping("join")
+    public String join_proc(MemberDto memberDto, Model model){
+        //System.out.println("email-->" + memberDto.getEmail());
+        //System.out.println("pnumber-->" + memberDto.getPnumber());
+        if(memberService.join(memberDto) == 1){
+            model.addAttribute("join_result", "ok");
+        }
+        return "/login/login";
+    }
+
+    /* join form */
+    @GetMapping("join")
+    public String join(){
+        return "/join/join";
+    }
+
     /* login process */
     @PostMapping("login")
     public String login_proc(MemberDto memberDto, Model model){

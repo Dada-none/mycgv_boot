@@ -14,13 +14,13 @@
 	<!-- header -->
 	<!-- <iframe src="http://localhost:9000/header.jsp"
 			scrolling="no" width="100%" height="149px" frameborder=0></iframe> -->
-	<jsp:include page="/header.do"></jsp:include>
+	<jsp:include page="../header.jsp"></jsp:include>
 	
 	<!-- content -->
 	<div class="content">
 		<section class="join">
 			<h1 class="title">회원가입</h1>
-			<form name="joinForm" action="join_proc.do" method="post">
+			<form name="joinForm" action="join" method="post">
 				<ul>
 					<li>
 						<label>아이디</label>
@@ -107,7 +107,7 @@
 	<!-- footer -->
 	<!-- <iframe src="http://localhost:9000/footer.jsp"
 			scrolling="no" width="100%" height="500px" frameborder=0></iframe> -->	
-	<jsp:include page="/footer.do"></jsp:include>
+	<jsp:include page="../footer.jsp"></jsp:include>
 </body>
 </html>
 

@@ -56,7 +56,7 @@ $(document).ready(function(){
 			return false;
 		}else{
 			$.ajax({ //Ajax로 전송되는 데이터는 반드시!!! 문자열 타입으로 전송한다!!!
-				url : "id_check.do?id="+$("#id").val(),
+				url : "idcheck/"+$("#id").val()+"/",
 				success : function(result){
 					if(result == 1){
 						$("#idcheck_msg").text("이미 사용중인 아이디 입니다. 다시 입력해주세요")
