@@ -22,8 +22,8 @@
 							<!-- <li><a href="http://localhost:9000/mypage/mypage.jsp" target="_parent">마이페이지</a></li> -->
 							<li><a href="#">VIP</a></li>
 							<li><a href="#">고객센터</a></li>
-							<li><a href="http://localhost:9000/notice_list">공지사항</a></li>
-							<li><a href="http://localhost:9000/board_list">게시판</a></li>
+							<li><a href="http://localhost:9000/notice_list/1/">공지사항</a></li>
+							<li><a href="http://localhost:9000/board_list/1/">게시판</a></li>
 							<!-- <li><a href="http://localhost:9000/admin/admin_index.jsp" target="_parent">ADMIN</a></li> -->
 						</ul>
 					</c:when>

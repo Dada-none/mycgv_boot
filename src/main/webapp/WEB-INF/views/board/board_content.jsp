@@ -20,37 +20,37 @@
 			<table class="board_content">
 				<tr>
 					<th>제목</th>
-					<td>${bvo.btitle}</td>
+					<td>${board.btitle}</td>
 				</tr>
 				<tr>
 					<th>내용</th>
-					<td>${bvo.bcontent}<br><br><br>
-						<c:if test="${bvo.bsfile != null}">
-							<img src = "http://localhost:9000/upload/${bvo.bsfile}">
+					<td>${board.bcontent}<br><br><br>
+						<c:if test="${board.bsfile != null}">
+							<img src = "http://localhost:9000/upload/${board.bsfile}">
 						</c:if>
 					</td>
 				</tr>
 				<tr>
 					<th>조회수</th>
-					<td>${bvo.bhits}</td>
+					<td>${board.bhits}</td>
 				</tr>
 				<tr>
 					<th>작성자</th>
-					<td>${bvo.id}</td>
+					<td>${board.id}</td>
 				</tr>
 				<tr>
 					<th>작성일자</th>
-					<td>${bvo.bdate}</td>
+					<td>${board.bdate}</td>
 				</tr>
 				<tr>
 					<td colspan="2">
-						<a href="board_update.do?bid=${bvo.bid}"> 
+						<a href="board_update.do?bid=${board.bid}">
 							<button type="button" class="btn_style">수정하기</button></a>
-						<a href="board_delete.do?bid=${bvo.bid}&bsfile=${bvo.bsfile}">
+						<a href="board_delete.do?bid=${board.bid}&bsfile=${board.bsfile}">
 							<button type="button" class="btn_style">삭제하기</button></a>
-						<a href="board_list.do">
+						<a href="/board_list/${page}">
 							<button type="button" class="btn_style">리스트</button></a>
-						<a href="http://localhost:9000/index.do">
+						<a href="http://localhost:9000/">
 						<button type="button" class="btn_style">홈으로</button></a>
 					</td>
 				</tr>

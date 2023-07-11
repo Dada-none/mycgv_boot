@@ -17,10 +17,10 @@
 	$(document).ready(function(){
 		var pager = jQuery('#ampaginationsm').pagination({
 		
-		    maxSize: '${maxSize}',	    		// max page size
-		    totals: '${totals}',	// total pages	
-		    page: '${page}',		// initial page		
-		    pageSize: '${pageSize}',			// max number items per page
+		    maxSize: '${page.pageCount}',	    		// max page size
+		    totals: '${page.dbCount}',	// total pages
+		    page: '${page.reqPage}',		// initial page
+		    pageSize: '${page.pageSize}',			// max number items per page
 		
 		    // custom labels		
 		    lastText: '&raquo;&raquo;', 		
@@ -33,7 +33,7 @@
 		
 		jQuery('#ampaginationsm').on('am.pagination.change',function(e){
 			   jQuery('.showlabelsm').text('The selected page no: '+e.page);
-	           $(location).attr('href', "http://localhost:9000/board_list.do?page="+e.page);
+	           $(location).attr('href', "http://localhost:9000/board_list/"+e.page+"/");
 	    });
 		
  	});
@@ -50,7 +50,7 @@
 			<table class="board_list">
 				<tr>
 					<td colspan="5">
-						<a href="board_write.do">
+						<a href="/board_write">
 							<button type="button" class="btn_style2">글쓰기</button>
 						</a>
 					</td>
@@ -71,13 +71,13 @@
 					<td><%=boardVo.getBdate() %></td>
 				</tr>
 				<%} %> --%>
-				<c:forEach var="boardVo" items="${list}"> <%-- ${name의 이름} --%>
+				<c:forEach var="board" items="${list}"> <%-- ${name의 이름} --%>
 				<tr>
-					<td>${boardVo.rno}</td>
-					<td><a href="board_content.do?bid=${boardVo.bid}">${boardVo.btitle}</a></td>
-					<td>${boardVo.bhits}</td>
-					<td>${boardVo.id}</td>
-					<td>${boardVo.bdate}</td>
+					<td>${board.rno}</td>
+					<td><a href="/board_content/${board.bid}/${page.reqPage}">${board.btitle}</a></td>
+					<td>${board.bhits}</td>
+					<td>${board.id}</td>
+					<td>${board.bdate}</td>
 				</tr>
 				</c:forEach>
 				<tr>
